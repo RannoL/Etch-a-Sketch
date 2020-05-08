@@ -20,9 +20,17 @@ function clearCanvas(){
 }
 
 function makeCanvas(){
-    let size = prompt("Choose the pixel count.");
-    clearCanvas();
-    makeGrid(size,size);
+    let grid = document.querySelector('#container');
+    let size = parseInt(document.querySelector('#sizeInput').value);
+    if (size <= 0 || size > 64 || isNaN(size)){
+        alert("Size should be a number between 1-64");
+    }else{
+        /*  remove old grid */
+        grid.querySelectorAll('*').forEach(e => e.remove());
+        makeGrid(size,size);
+    }
+
+
 }
 
 makeGrid(16,16);

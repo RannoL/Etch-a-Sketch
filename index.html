@@ -13,11 +13,19 @@
         <main>
             <div id= "buttons">
                 <button type= "button" id= "clearBtn" onclick= "clearCanvas()">Clear</button>
-                <button type= "button" id= "newBtn" onclick= "makeCanvas()">New canvas</button>
+
+                <form id= "options">
+                    <label for= 'size'>
+                        Size: <br>
+                    </label>
+                    <input type= "text" id= 'sizeInput'>
+                    <input type= "submit" id= "sizeSubmit" onclick= "makeCanvas()"></input>
+                </form>
+
+                <button type="button" id= 'color' onclick= 'changeColor()'>Rainbow</button>
             </div>
-            <div id="window">
-                <div id= "container">  
-                </div>
+            <div id= "container">  
+
             </div>
         </main>
 
