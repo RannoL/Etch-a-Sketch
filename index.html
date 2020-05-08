@@ -9,23 +9,24 @@
         <header>
             <h1>Etch-a-Sketch</h1>
         </header>
-
         <main>
             <div id= "buttons">
                 <button type= "button" id= "clearBtn" onclick= "clearCanvas()">Clear</button>
 
-                <form id= "options">
+                <form id= "options" onsubmit="return false">
                     <label for= 'size'>
                         Size: <br>
                     </label>
-                    <input type= "text" id= 'sizeInput'>
-                    <input type= "submit" id= "sizeSubmit" onclick= "makeCanvas()"></input>
+                    <input type= "text" id= 'sizeInput' value="16" >
+                    <input type= "submit" id= "sizeSubmit" onclick= "makeCanvas()" value="New sketchboard"></input>
                 </form>
-
-                <button type="button" id= 'color' onclick= 'changeColor()'>Rainbow</button>
+                <div id= "rainbowBtn">
+                    <button type="button" id= 'color' onclick= 'changeToRainbow()'>Rainbow</button>
+                    <span id= "rainbowToggle">OFF</span>
+                </div>    
             </div>
-            <div id= "container">  
 
+            <div id= "container">  
             </div>
         </main>
 
