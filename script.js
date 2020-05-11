@@ -1,5 +1,7 @@
 const container = document.querySelector('#container');
+const rainbowOnOffText = document.querySelector('#rainbowToggle');
 let rainbowToggled = false;
+
 
 function makeGrid(cols, rows){
     container.style.setProperty('--grid-cols', cols);
@@ -7,9 +9,13 @@ function makeGrid(cols, rows){
 
     for(i= 0; i<= (cols * rows); i++){
         const pixel = document.createElement('div');
-        pixel.onmouseover = changeToGray();
         container.appendChild(pixel).classList.add('gridPixel');
     }
+    if (rainbowToggled) {
+        changeToRainbow();
+    }else{
+        changeToGray();
+    }  
 }
 
 function clearCanvas(){
@@ -32,6 +38,7 @@ function makeCanvas(){
 }
 
 function changeToGray(){
+    rainbowToggled = false;
     const pixels = document.querySelectorAll('.gridPixel');
     pixels.forEach((pixel) => {
         pixel.onmouseover = e => {
@@ -43,7 +50,7 @@ function changeToGray(){
 function changeToRainbow(){
     if (!rainbowToggled){
         rainbowToggled = true;
-        document.querySelector('#rainbowToggle').textContent = "ON"
+        rainbowOnOffText.textContent = "ON"
         const pixels = document.querySelectorAll('.gridPixel');
         pixels.forEach((pixel) => {
             pixel.onmouseover = e => {
@@ -53,7 +60,7 @@ function changeToRainbow(){
         })
     }else {
         rainbowToggled = false;
-        document.querySelector('#rainbowToggle').textContent = "OFF"
+        rainbowOnOffText.textContent = "OFF"
         changeToGray();
     }
 }
